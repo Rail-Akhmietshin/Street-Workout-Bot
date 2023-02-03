@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  redis:
+    image: redis:alpine
+    command:
+      - redis-server
+    env_file:
+      - ./.env
+    restart: on-failure
+    ports:
+      - "6379:6379"
+  db:
+    image: postgres:14.6-alpine
+    env_file:
+      - ./.env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./places:/re_store_db
+    restart: on-failure
+  bot:
+    build: .
+    command: sh -c "python3.11 -m bot"
+    env_file:
+      - ./.env
+    restart: always
+    depends_on:
+      - db
+      - redis
+
+volumes:
+  pgdata:
