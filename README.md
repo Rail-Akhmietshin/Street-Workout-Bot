@@ -4,9 +4,12 @@ The bot was created to find like-minded people in street sports in the city of K
 
 * First you need to create a file with environment variables '.env' and register the following fields in it:
 
-BOT_TOKEN=(YOUR BOT TOKEN>)
+BOT_TOKEN=(YOUR BOT TOKEN)
+
 POSTGRES_USER=(YOUR POSTGRESQL USER)
+
 POSTGRES_PASSWORD=(YOUR POSTGRESQL PASSWORD)
+
 POSTGRES_DB=(YOUR POSGTRESQL DATABASE)
 
 
